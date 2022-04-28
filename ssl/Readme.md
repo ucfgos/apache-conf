@@ -29,4 +29,4 @@ $ docker run -p 80:80 -p 443:443 \
 5. Visite en el navegador a la siguiente dirección: `http://node.server.com`
 
 ___
->**Nota**: Los certificados usagos en este proyecto solo sirven el propósito de demonstración, estos no deben ser utilizados en un ambiente de produciión.
+>**Nota**: Los certificados usados en este proyecto solo sirven el propósito de demonstración, estos no deben ser utilizados en un ambiente de producción.
