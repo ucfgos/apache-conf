@@ -15,12 +15,12 @@ $ docker pull httpd:2.4
 3. Iniciar el contenedor de apache
 
 ```bash
-$ docker run -p 80:80 -p 443:443 \                                       
--v $(pwd)/httpd.conf:/usr/local/apache2/conf/httpd.conf \
--v $(pwd)/ssl/ssl.conf:/usr/local/apache2/conf/extra/ssl.conf \
--v $(pwd)/ssl/server.crt:/usr/local/apache2/conf/server.crt \
--v $(pwd)/ssl/server.key:/usr/local/apache2/conf/server.key  \
--v $(pwd)/ssl/index.html:/usr/local/apache2/htdocs/index.html \
+$ docker run -p 80:80 -p 443:443                                        
+-v $(pwd)/httpd.conf:/usr/local/apache2/conf/httpd.conf 
+-v $(pwd)/ssl/ssl.conf:/usr/local/apache2/conf/extra/ssl.conf 
+-v $(pwd)/ssl/server.crt:/usr/local/apache2/conf/server.crt 
+-v $(pwd)/ssl/server.key:/usr/local/apache2/conf/server.key 
+-v $(pwd)/ssl/index.html:/usr/local/apache2/htdocs/index.html 
 --name apache -d httpd:2.4
 ```
 
