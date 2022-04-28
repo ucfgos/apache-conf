@@ -15,7 +15,7 @@ $ docker network create reverse-proxy-net
 2. Crear el contenedor de nuestra aplicación back-end.
 
 ```bash
-$ docker build --tag node-http-server reverse-proxy
+$ docker build --tag node-http-server node-http-server
 ```
 
 3. Descargar la imagen de apache
