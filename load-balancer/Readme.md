@@ -4,42 +4,12 @@ El equilibrio de carga es el proceso de distribución del tráfico de red entre 
 
 Para ejecutar este ejemplo con docker se deben seguir los siguientes pasos:
 
-1. Crear una red donde se puedan ver los contenedores
+1. Ejecutar el siguiente comando
 
-```bash
-$ docker network create load-balance-net
-```
+    ```bash
+    docker compose up load-balancer 
+    ```
 
-2. Crear la imagen de nuestra aplicación back-end.
+1. Añadir al archivo *[hosts](https://en.wikipedia.org/wiki/Hosts_(file))* la siguiente entrada: `127.0.0.1  balanced.server.com`
 
-```bash
-$ docker build --tag node-http-server node-http-server
-```
-
-3. Descargar la imagen de apache
-
-```bash
-$ docker pull httpd:2.4
-```
-
-4. Descomentar la sección de modulos requeridos y la sección de *Includes* en el archivo [httpd.conf](/httpd.conf).
-
-5. Iniciar los contenedores de la aplicación back-end.
-
-```bash
-$ docker run --name node-http-server-0 --network load-balance-net -d node-http-server
-```
-
-```bash
-$ docker run --name node-http-server-1 --network load-balance-net -d node-http-server
-```
-
-6. Iniciar el contenedor de apache
-
-```bash
-$ docker run -p 80:80 -v $(pwd)/httpd.conf:/usr/local/apache2/conf/httpd.conf -v $(pwd)/load-balancer/l-balancer.conf:/usr/local/apache2/conf/extra/l-balancer.conf --network load-balancer-net -d --name apache httpd:2.4
-```
-
-7. Añadir en el archivo hosts el nombre del servidor, el cual es `balanced.server.com` especificado en el *VirtualHost* apuntando a 127.0.0.1.
-
-8. Visite en el navegador a la siguiente dirección: `http://balanced.server.com`
+1. Visitar en el navegador a la dirección anterior.

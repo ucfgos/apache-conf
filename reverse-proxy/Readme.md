@@ -6,38 +6,13 @@ Un uso típico de un proxy inverso es proporcionar a los usuarios de Internet ac
 
 Para ejecutar este ejemplo con docker se deben seguir los siguientes pasos:
 
-1. Crear una red donde se puedan ver los contenedores:
 
-```bash
-$ docker network create reverse-proxy-net
-```
+1. Ejecutar el siguiente comando
 
-2. Crear el contenedor de nuestra aplicación back-end.
+    ```bash
+    docker compose up reverse-proxy
+    ```
 
-```bash
-$ docker build --tag node-http-server node-http-server
-```
+1. Añadir al archivo *[hosts](https://en.wikipedia.org/wiki/Hosts_(file))* la siguiente entrada: `127.0.0.1  node.server.com`
 
-3. Descargar la imagen de apache
-
-```bash
-$ docker pull httpd:2.4
-```
-
-4. Descomentar la sección de modulos requeridos y la sección de *Includes* en el archivo [httpd.conf](/httpd.conf).
-
-5. Iniciar el contenedor de la aplicación back-end.
-
-```bash
-$ docker run --name node-http-server --network reverse-proxy-net -d node-http-server
-```
-
-6. Iniciar el contenedor de apache
-
-```bash
-$ docker run -p 80:80 -v $(pwd)/httpd.conf:/usr/local/apache2/conf/httpd.conf -v $(pwd)/reverse-proxy/r-proxy.conf:/usr/local/apache2/conf/extra/r-proxy.conf --network reverse-proxy-net -d --name apache httpd:2.4
-```
-
-7. Añadir en el archivo hosts el nombre del servidor, el cual es `node.server.com` especificado en el *VirtualHost* apuntando a 127.0.0.1.
-
-8. Visite en el navegador a la siguiente dirección: `http://node.server.com`
+1. Visitar en el navegador a la dirección anterior.

@@ -4,29 +4,17 @@ SSL (Secure Sockets Layer) es la tecnología estándar para mantener segura una 
 
 Para ejecutar este ejemplo con docker se deben seguir los siguientes pasos:
 
-1. Descargar la imagen de apache:
 
-```bash
-$ docker pull httpd:2.4
-```
 
-2. Descomentar la sección de modulos requeridos y la sección de *Includes* en el archivo [httpd.conf](/httpd.conf).
+1. Ejecutar el siguiente comando
 
-3. Iniciar el contenedor de apache
+    ```bash
+    docker compose up ssl
+    ```
 
-```bash
-$ docker run -p 80:80 -p 443:443                                        
--v $(pwd)/httpd.conf:/usr/local/apache2/conf/httpd.conf 
--v $(pwd)/ssl/ssl.conf:/usr/local/apache2/conf/extra/ssl.conf 
--v $(pwd)/ssl/server.crt:/usr/local/apache2/conf/server.crt 
--v $(pwd)/ssl/server.key:/usr/local/apache2/conf/server.key 
--v $(pwd)/ssl/index.html:/usr/local/apache2/htdocs/index.html 
---name apache -d httpd:2.4
-```
+1. Añadir al archivo *[hosts](https://en.wikipedia.org/wiki/Hosts_(file))* la siguiente entrada: `127.0.0.1  ssl.example.com`
 
-4. Añadir en el archivo hosts el nombre del servidor, el cual es `ssl.example.com` especificado en el *VirtualHost* apuntando a *127.0.0.1*
-
-5. Visite en el navegador a la siguiente dirección: `http://node.server.com`
+1. Visitar en el navegador a la dirección anterior.
 
 ___
 >**Nota**: Los certificados usados en este proyecto solo sirven el propósito de demonstración, estos no deben ser utilizados en un ambiente de producción.
