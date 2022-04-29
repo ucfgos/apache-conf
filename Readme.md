@@ -11,7 +11,7 @@ A continuación se listan los ejemplos de configuraciones realizados hasta ahora
 
 ## Contribución
 
-Para contribuir con más ejemplos, se debe crear un [Pull Request]() con los siguientes pasos:
+Para contribuir con más ejemplos, se debe crear un [Pull Request](https://github.com/ucfgos/apache-conf/pulls) con los siguientes pasos:
 
 * Crear una carpeta con el caso de uso que se desea agregar
 * Añadir como comentarios los módulos requeridos en la sección *Extra Modules* del archivo [httpd.conf](httpd.conf)
