@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  apache:
+    image: httpd:2.4
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - 80:80
+      - 443:443
+
+  node-http-server:
+    build: node-http-server
+    image: node-http-server

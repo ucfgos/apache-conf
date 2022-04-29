@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  ssl:
+    extends:
+      file: docker-common.yml
+      service: apache
+    volumes:
+      - ./ssl/ssl.conf:/usr/local/apache2/conf/extra/ssl.conf
+      - ./ssl/server.crt:/usr/local/apache2/conf/server.crt
+      - ./ssl/server.key:/usr/local/apache2/conf/server.key
+      - ./ssl/index.html:/usr/local/apache2/htdocs/index.html
+  
+  reverse-proxy:
+    extends:
+      file: docker-common.yml
+      service: apache
+    volumes:
+      - ./reverse-proxy/r-proxy.conf:/usr/local/apache2/conf/extra/r-proxy.conf
+    depends_on:
+      - reverse-proxy-node
+      
+  reverse-proxy-node:
+    build: reverse-proxy 
+    image: reverse-proxy-node
+    container_name: reverse-proxy-node
+
+  load-balancer:
+    extends:
+      file: docker-common.yml
+      service: apache
+    volumes:
+      - ./load-balancer/l-balancer.conf:/usr/local/apache2/conf/extra/l-balancer.conf
+    depends_on:
+      - load-balancer-node
+
+  load-balancer-node:
+    build: load-balancer
+    image: load-balancer-node
+    container_name: load-balancer-node
