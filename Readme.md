@@ -8,6 +8,7 @@ A continuación se listan los ejemplos de configuraciones realizados hasta ahora
 
 * **Proxy inverso**: [Readme.md](reverse-proxy/Readme.md)
 * **SSL**: [Readme.md](ssl/Readme.md)
+* **Equilibrio de Carga**: [Readme.md](reverse-proxy/Readme.md)
 
 ## Contribución
 
