@@ -1,6 +1,6 @@
 # Configuración de Apache
 
-El propósito de este repositorio es ejemplificar ejemplos de configuración de un servidor [Apache](https://httpd.apache.org), siguiendo buenas prácticas, para distintos escenarios.
+El propósito de este repositorio es mostrar ejemplos de configuración de un servidor [Apache](https://httpd.apache.org), siguiendo buenas prácticas, para distintos escenarios.
 
 Las demostraciones de cada ejemplo se hacen utilizando [Docker](https://www.docker.com) y la imágen httpd:2.4 para una mayor simplicidad.
 
