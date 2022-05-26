@@ -38,3 +38,17 @@ services:
     build: load-balancer
     image: load-balancer-node
     container_name: load-balancer-node
+
+  wsgi-app:
+    build: wsgi
+    image: wsgi-app
+    container_name: wsgi-app
+
+  wsgi:
+    extends:
+      file: docker-common.yml
+      service: apache
+    volumes:
+      - ./wsgi/wsgi.conf:/usr/local/apache2/conf/extra/wsgi.conf
+    depends_on:
+      - wsgi-app
