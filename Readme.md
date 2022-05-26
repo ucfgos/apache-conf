@@ -11,6 +11,8 @@ A continuación se listan los ejemplos de configuraciones realizados hasta ahora
 * **Equilibrio de Carga**: [Readme.md](reverse-proxy/Readme.md)
 * **WSGI**: [Readme.md](wsgi/Readme.md)
 
+Para poder ejecutar cada ejemplo es necesario descomentar su sección correspondiente en el archivo [httpd.conf](./httpd.conf)
+
 ## Contribución
 
 Para contribuir con más ejemplos, se debe crear un [Pull Request](https://github.com/ucfgos/apache-conf/pulls) con los siguientes pasos:
