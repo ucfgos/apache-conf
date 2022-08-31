@@ -5,6 +5,7 @@ services:
     image: httpd:2.4
     volumes:
       - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+      - ./headers.conf:/usr/local/apache2/conf/headers.conf
     ports:
       - 80:80
       - 443:443
