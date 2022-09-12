@@ -19,7 +19,6 @@ Para poder ejecutar cada ejemplo es necesario descomentar su sección correspond
 Para contribuir con más ejemplos, se debe crear un [Pull Request](https://github.com/ucfgos/apache-conf/pulls) con los siguientes pasos:
 
 * Crear una carpeta con el caso de uso que se desea agregar
-* Añadir como comentarios los módulos requeridos en la sección *Extra Modules* del archivo [httpd.conf](httpd.conf)
 * Añadir como un comentario el camino del archivo de configuración de apache al final del archivo [httpd.conf](httpd.conf).
 * Añadir a la lista de este Readme el caso de uso ejemplificado. 
 
