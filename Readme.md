@@ -10,6 +10,7 @@ A continuación se listan los ejemplos de configuraciones realizados hasta ahora
 * **SSL**: [Readme.md](ssl/Readme.md)
 * **Equilibrio de Carga**: [Readme.md](reverse-proxy/Readme.md)
 * **WSGI**: [Readme.md](wsgi/Readme.md)
+* **Django**: [Readme.md](django/Readme.md)
 
 Para poder ejecutar cada ejemplo es necesario descomentar su sección correspondiente en el archivo [httpd.conf](./httpd.conf)
 

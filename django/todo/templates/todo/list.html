@@ -1,0 +1,19 @@
+{% for todo in todo_list %}
+<div class="container rounded border shadow p-4 mt-4">
+  <h4>{{todo.title}}</h4>
+  <p>{{todo.description}}</p>
+  <div class="d-flex justify-content-end">
+    {% if not todo.done %}
+    <a href="{% url 'todo-done' todo.id %}" class="btn btn-primary rounded shadow">Done</a>
+    {% endif %}
+    <a href="{% url 'todo-get' todo.id %}" class="btn btn-success rounded shadow">Edit</a>
+    <a href="{% url 'todo-delete' todo.id %}" class="btn btn-danger rounded shadow">Delete</a>
+  </div>
+</div>
+{% endfor %}
+
+<style>
+  div > a {
+    margin: 0 .3em;
+  }
+</style>

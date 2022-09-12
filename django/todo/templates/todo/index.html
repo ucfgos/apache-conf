@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% block title %}Todo App{% endblock %}
+{% block content %}
+{% include 'topbar.html' %}
+<div class="d-flex justify-content-end container mt-2">
+  <a href="{% url 'logout' %}">Logout</a>
+</div>
+{% if pending_list %}
+<div class="container mt-4">
+  <h4>Your pending tasks</h4>
+</div>
+{% include 'todo/list.html' with todo_list=pending_list %}
+{% else %}
+<div class="container">
+  <div class="d-flex justify-content-center justify-content-center align-items-center mt-5">
+    <div class="d-flex flex-column align-items-center rounded shadow border w-75 p-5 pb-3">
+      <h3>You don't have any pending tasks.</h3>
+    </div>
+  </div>
+</div>
+{% endif %}
+<div class="container">
+  <a href="{% url 'todo-new' %}" class="btn btn-primary rounded p-2 mt-5">Add one</a>
+</div>
+{% if done_list %}
+<div class="container mt-4">
+  <h4>Your finished tasks</h4>
+</div>
+{% include 'todo/list.html' with todo_list=done_list %}
+{% endif %}
+{% endblock %}

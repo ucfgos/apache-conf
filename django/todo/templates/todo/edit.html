@@ -1,0 +1,6 @@
+{% extends 'registration/form.html' %}
+{% block form_name %}Edit Task{% endblock %}
+{% block form_action %}
+{% url 'todo-edit' id %}
+{% endblock %}
+{% block submit_btn_text %}Edit{% endblock %}
