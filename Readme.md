@@ -12,7 +12,7 @@ A continuación se listan los ejemplos de configuraciones realizados hasta ahora
 * **WSGI**: [Readme.md](wsgi/Readme.md)
 * **Django**: [Readme.md](django/Readme.md)
 
-Para poder ejecutar cada ejemplo es necesario descomentar su sección correspondiente en el archivo [httpd.conf](./httpd.conf)
+Para poder ejecutar cada ejemplo es necesario descomentar su sección correspondiente en el archivo [httpd.conf](./httpd.conf), por ejemplo si se desea ejecutar el caso de uso [**SSL**](ssl/Readme.md) es necesario ir hasta el final del archivo [httpd.conf](./httpd.conf) y descomentar la línea correspondiente a SSL.
 
 ## Contribución
 
