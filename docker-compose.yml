@@ -71,5 +71,31 @@ services:
     depends_on:
       - django-app
 
+  portainer-ce:
+    image: portainer/portainer-ce:2.9.3
+    command: -H unix:///var/run/docker.sock
+    restart: unless-stopped
+    environment:
+      - VIRTUAL_HOST=portainer.server.com
+      - VIRTUAL_PORT=9000
+    ports:
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+  portainer:
+    extends:
+      file: docker-common.yml
+      service: apache
+    volumes:
+      - ./portainer/portainer.conf:/usr/local/apache2/conf/extra/portainer.conf
+      - ./ssl/server.crt:/usr/local/apache2/conf/server.crt
+      - ./ssl/server.key:/usr/local/apache2/conf/server.key
+      - /var/run/docker.sock:/usr/local/apache2/portainer.sock
+    depends_on:
+      - portainer-ce
+
 volumes:
   static:
+  portainer_data:
